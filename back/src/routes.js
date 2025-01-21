@@ -21,7 +21,7 @@ export const routes = [
       }
 
       const newTask = {
-        id: uuidv4(),  
+        id: uuidv4(),
         title,
         description,
         completed: false,
@@ -32,12 +32,12 @@ export const routes = [
       tasks.push(newTask);
 
       res.writeHead(201, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify(newTask));
+      return res.end(JSON.stringify(newTask));  // Garante que a resposta é enviada e o fluxo é interrompido
     },
   },
   {
     method: 'PUT',
-    path: /^\/tasks\/(?<id>[a-f0-9\-]+)$/,  
+    path: /^\/tasks\/(?<id>[a-f0-9\-]+)$/,
     handler: async (req, res, tasks) => {
       const { id } = req.params;
       const { title, description } = req.body;
@@ -57,12 +57,12 @@ export const routes = [
       };
 
       res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify(tasks[taskIndex]));
+      return res.end(JSON.stringify(tasks[taskIndex]));
     },
   },
   {
     method: 'DELETE',
-    path: /^\/tasks\/(?<id>[a-f0-9\-]+)$/,  
+    path: /^\/tasks\/(?<id>[a-f0-9\-]+)$/,
     handler: (req, res, tasks) => {
       const { id } = req.params;
 
@@ -80,7 +80,7 @@ export const routes = [
   },
   {
     method: 'PATCH',
-    path: /^\/tasks\/(?<id>[a-f0-9\-]+)\/complete$/,  
+    path: /^\/tasks\/(?<id>[a-f0-9\-]+)\/complete$/,
     handler: (req, res, tasks) => {
       const { id } = req.params;
 
@@ -95,7 +95,7 @@ export const routes = [
       tasks[taskIndex].updated_at = new Date();
 
       res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify(tasks[taskIndex]));
+      return res.end(JSON.stringify(tasks[taskIndex]));  // Garante que a resposta é enviada e o fluxo é interrompido
     },
   },
 ];

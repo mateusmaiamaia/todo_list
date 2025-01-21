@@ -1,0 +1,58 @@
+/* Remover estilos desnecessários */
+.App {
+  /* Não é mais necessário, pois o layout já foi configurado no App.js */
+  text-align: center;
+}
+
+/* Estilos específicos para o layout */
+.sidebar {
+  width: 250px;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.profileSection {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profilePic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.profileName {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.navLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.navButton {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+  background-color: #007BFF;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Ajuste do conteúdo à direita da barra lateral */
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
