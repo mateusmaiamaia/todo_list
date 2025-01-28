@@ -6,7 +6,7 @@ export const routes = [
     path: /^\/tasks$/,
     handler: (req, res, tasks) => {
       res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify(tasks));
+      return res.end(JSON.stringify(tasks));  // Garante que a resposta é enviada e o fluxo é interrompido
     },
   },
   {
@@ -57,7 +57,7 @@ export const routes = [
       };
 
       res.writeHead(200, { 'Content-Type': 'application/json' });
-      return res.end(JSON.stringify(tasks[taskIndex]));
+      return res.end(JSON.stringify(tasks[taskIndex]));  // Garante que a resposta é enviada e o fluxo é interrompido
     },
   },
   {
@@ -75,7 +75,7 @@ export const routes = [
 
       tasks.splice(taskIndex, 1);
 
-      res.writeHead(204).end();
+      res.writeHead(204).end();  // Garante que a resposta é enviada e o fluxo é interrompido
     },
   },
   {
